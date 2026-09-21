@@ -1,0 +1,235 @@
+/* ====== I-LOVE-FOX 🦊 — Modern Cool Theme ====== */
+
+:root {
+    --bg-1: #0d0221;
+    --bg-2: #190933;
+    --accent: #a855f7;
+    --accent-2: #22d3ee;
+    --card: rgba(255, 255, 255, 0.06);
+    --card-border: rgba(255, 255, 255, 0.15);
+    --text: #f3f0ff;
+    --text-dim: #c4b5fd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: large;
+    line-height: 1.7;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, var(--bg-1), var(--bg-2) 50%, #2d1b4e);
+    background-attachment: fixed;
+    overflow-x: hidden;
+    animation: pageIn 0.8s ease-out;
+}
+
+/* Animated aurora glow blobs in the background */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 45vw;
+    height: 45vw;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.35;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    top: -15vw;
+    left: -10vw;
+    background: radial-gradient(circle, #a855f7, transparent 70%);
+    animation: float1 12s ease-in-out infinite alternate;
+}
+
+body::after {
+    bottom: -15vw;
+    right: -10vw;
+    background: radial-gradient(circle, #22d3ee, transparent 70%);
+    animation: float2 14s ease-in-out infinite alternate;
+}
+
+@keyframes float1 {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(8vw, 6vw) scale(1.15); }
+}
+
+@keyframes float2 {
+    from { transform: translate(0, 0) scale(1.1); }
+    to   { transform: translate(-6vw, -8vw) scale(0.95); }
+}
+
+@keyframes pageIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Glass card shared look ====== */
+.judul-1,
+.why,
+.anjayy,
+.penjelasan-1,
+.penjelasan-2,
+.redfox,
+.merahl,
+.fennec,
+.kontak,
+.redfox-1,
+.fennec-1,
+.list-1 {
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 22px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.judul-1,
+.why,
+.anjayy,
+.penjelasan-1,
+.penjelasan-2,
+.redfox,
+.merahl,
+.fennec,
+.kontak {
+    margin: 30px auto;
+    padding: 25px 35px;
+    max-width: 760px;
+    width: fit-content;
+    text-align: center;
+}
+
+.judul-1:hover,
+.why:hover,
+.anjayy:hover,
+.penjelasan-1:hover,
+.penjelasan-2:hover,
+.redfox:hover,
+.merahl:hover,
+.fennec:hover,
+.kontak:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(168, 85, 247, 0.25);
+    border-color: rgba(168, 85, 247, 0.5);
+}
+
+/* ====== Hero title with animated gradient text ====== */
+.judul-1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #22d3ee, #a855f7, #f472b6, #22d3ee);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 6s linear infinite;
+}
+
+@keyframes gradientShift {
+    to { background-position: 300% 0; }
+}
+
+.why {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+}
+
+.anjayy,
+.penjelasan-1,
+.penjelasan-2,
+.merahl,
+.fennec,
+.kontak {
+    color: var(--accent-2);
+    font-weight: 700;
+}
+
+.redfox {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fb923c;
+}
+
+/* ====== Lists as neon bullet cards ====== */
+.list-1,
+.redfox-1,
+.fennec-1 {
+    margin: 30px auto;
+    padding: 25px 45px;
+    max-width: 800px;
+}
+
+.list-1 li,
+.redfox-1 li,
+.fennec-1 li {
+    margin: 14px 0;
+    padding: 14px 20px;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    text-align: left;
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.list-1 li:hover,
+.redfox-1 li:hover,
+.fennec-1 li:hover {
+    transform: translateX(8px);
+    background: rgba(168, 85, 247, 0.12);
+    border-left-color: var(--accent-2);
+}
+
+/* ====== Contact link glow ====== */
+.email a {
+    color: var(--accent-2);
+    text-decoration: none;
+    font-weight: 700;
+    padding: 4px 6px;
+    border-radius: 8px;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.email a:hover {
+    color: #67e8f9;
+    text-shadow: 0 0 12px rgba(34, 211, 238, 0.8);
+}
+
+/* ====== Scroll reveal ====== */
+@media (prefers-reduced-motion: no-preference) {
+    .judul-1, .why, .list-1, .redfox-1, .fennec-1 {
+        animation: riseIn 0.9s ease both;
+    }
+    .redfox-1 { animation-delay: 0.15s; }
+    .fennec-1 { animation-delay: 0.3s; }
+}
+
+@keyframes riseIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== Mobile friendly ====== */
+@media (max-width: 640px) {
+    body { padding: 20px 10px; }
+    .judul-1, .why, .anjayy, .penjelasan-1, .penjelasan-2,
+    .redfox, .merahl, .fennec, .kontak, .list-1, .redfox-1, .fennec-1 {
+        margin: 20px 0;
+        padding: 18px 20px;
+        width: 100%;
+    }
+    .judul-1 { font-size: 1.4rem; }
+}
